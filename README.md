@@ -7,6 +7,10 @@ These boxes are used at [Xplore](http://www.xplore.net) as development environme
 
 When using with Vagrant, Apache is configured to host from `/httpdocs` from your local directory.
 
+An empty database is created named `vagrant`, username `vagrant`, password `vagrant`.
+
+Generally any password should be `vagrant` (seeing a theme?).
+
 ## Current baseboxes
 
 The following baseboxes are publicly available and were built using this project.
