@@ -1,7 +1,7 @@
 {
-  "builders": [
+"builders": [
     {
-      "boot_command": [
+    "boot_command": [
         "<esc><wait>",
         "install <wait>",
         "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian-6.0.9/preseed.cfg <wait>",
@@ -17,50 +17,50 @@
         "console-setup/ask_detect=false <wait>",
         "console-keymaps-at/keymap=us <wait>",
         "<enter><wait>"
-      ],
-      "boot_wait": "10s",
-      "disk_size": 4096,
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Debian_64",
-      "http_directory": "http",
-      "iso_checksum": "3f3ec3e1adb4c2904a1234799f4775c10cf47cce",
-      "iso_checksum_type": "sha1",
-      "iso_url": "{{user `mirror`}}/6.0.9/amd64/iso-cd/debian-6.0.9-amd64-CD-1.iso",
-      "output_directory": "packer-debian-6.0.9-amd64-virtualbox",
-      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_username": "vagrant",
-      "ssh_wait_timeout": "10000s",
-      "type": "virtualbox-iso",
-      "vboxmanage": [
+    ],
+    "boot_wait": "10s",
+    "disk_size": 4096,
+    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+    "guest_os_type": "Debian_64",
+    "http_directory": "http",
+    "iso_checksum": "3f3ec3e1adb4c2904a1234799f4775c10cf47cce",
+    "iso_checksum_type": "sha1",
+    "iso_url": "{{user `mirror`}}/6.0.9/amd64/iso-cd/debian-6.0.9-amd64-CD-1.iso",
+    "output_directory": "packer-debian-6.0.9-amd64-virtualbox",
+    "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
+    "ssh_password": "vagrant",
+    "ssh_port": 22,
+    "ssh_username": "vagrant",
+    "ssh_wait_timeout": "10000s",
+    "type": "virtualbox-iso",
+    "vboxmanage": [
         [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "384"
+        "modifyvm",
+        "{{.Name}}",
+        "--memory",
+        "384"
         ],
         [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
+        "modifyvm",
+        "{{.Name}}",
+        "--cpus",
+        "1"
         ]
-      ],
-      "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-debian-6.0.9-amd64"
+    ],
+    "virtualbox_version_file": ".vbox_version",
+    "vm_name": "packer-debian-6.0.9-amd64"
     }
-  ],
-  "post-processors": [
+],
+"post-processors": [
     {
-      "output": "../builds/{{.Provider}}/debian-6.0.9_puppet.box",
-      "type": "vagrant"
+    "output": "../builds/{{.Provider}}/debian-6.0.9_puppet.box",
+    "type": "vagrant"
     }
-  ],
-  "provisioners": [
+],
+"provisioners": [
     {
-      "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "scripts": [
+    "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
+    "scripts": [
         "scripts/debian/update.sh",
         "scripts/common/sshd.sh",
         "scripts/debian/networking.sh",
@@ -68,13 +68,26 @@
         "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
         "scripts/common/puppet.sh",
-        "scripts/debian/cleanup.sh",
-        "scripts/common/minimize.sh"
-      ],
-      "type": "shell"
-    }
-  ],
-  "variables": {
+        "scripts/common/git.sh"
+    ],
+    "type": "shell"
+}, {
+    "type": "file",
+    "source": "files/debian",
+    "destination": "/tmp"
+}, {
+    "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
+    "scripts": [
+    "scripts/debian/apache2.sh",
+    "scripts/debian/php5.sh",
+    "scripts/debian/mysql.sh",
+    "scripts/debian/cleanup.sh",
+    "scripts/common/minimize.sh"
+    ],
+    "type": "shell"
+}
+],
+"variables": {
     "mirror": "http://cdimage.debian.org/cdimage/archive"
-  }
+}
 }

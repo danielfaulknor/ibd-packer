@@ -3,6 +3,10 @@
 [Packer](http://www.packer.io/) templates for building [Vagrant](http://www.vagrantup.com/) baseboxes.
 These boxes are used at [Xplore](http://www.xplore.net) as development environments.
 
+## Usage
+
+When using with Vagrant, Apache is configured to host from `/httpdocs` from your local directory.
+
 ## Current baseboxes
 
 The following baseboxes are publicly available and were built using this project.
