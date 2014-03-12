@@ -81,6 +81,7 @@
     "scripts/debian/apache2.sh",
     "scripts/debian/php5.sh",
     "scripts/debian/mysql.sh",
+    "scripts/debian/phpmyadmin.sh",
     "scripts/debian/cleanup.sh",
     "scripts/common/minimize.sh"
     ],
