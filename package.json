@@ -1,0 +1,13 @@
+{
+  "name": "xplore-packer",
+  "version": "0.2.1",
+  "description": "Packer configurations for Xplore development environments",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "xplorenet/xplore-packer",
+  "author": {
+    "name": "Xplore - your web agency",
+    "email": "developers@xplore.net",
+    "url": "https://github.com/XploreNet"
+  }
+}
