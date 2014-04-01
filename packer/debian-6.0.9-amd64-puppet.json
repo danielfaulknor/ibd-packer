@@ -67,7 +67,7 @@
         "scripts/debian/sudoers.sh",
         "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
-        "scripts/common/puppet.sh",
+        "scripts/debian/puppet.sh",
         "scripts/common/git.sh"
     ],
     "type": "shell"
