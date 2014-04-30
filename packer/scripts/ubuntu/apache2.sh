@@ -22,3 +22,6 @@ mv /tmp/common/apache2/mods-available/rewrite.load /etc/apache2/mods-available/r
 chown root:root /etc/apache2/mods-available/rewrite.load
 chmod 664 /etc/apache2/mods-available/rewrite.load
 ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+
+# add vagrant user to www-data group
+usermod -a -G www-data vagrant

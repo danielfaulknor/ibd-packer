@@ -31,7 +31,7 @@ or
 
 `$ packer build ubuntu-14.04-amd64.json`
 
-Congratulations! You now have the box in the ../builds directory that you can then add to Vagrant.
+Congratulations! You now have the box in the `../builds` directory that you can then add to Vagrant.
 
 ## Credits
 
