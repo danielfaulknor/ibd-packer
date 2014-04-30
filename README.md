@@ -17,6 +17,7 @@ The following baseboxes are publicly available and were built using this project
 They are also detailed at [Vagrant Cloud](https://vagrantcloud.com/xplore).
 
 - [debian-6.0.9](https://vagrantcloud.com/xplore/debian-6.0.9)
+- [ubuntu-14.04](https://vagrantcloud.com/xplore/debian-6.0.9)
 
 ## Build your own boxes
 
@@ -25,6 +26,10 @@ First, install [Packer](http://www.packer.io/) and then clone this project.
 Inside the `packer` directory, a JSON file describes each box that can be built. You can use packer build to build the boxes.
 
 `$ packer build debian-6.0.9-amd64.json`
+
+or
+
+`$ packer build ubuntu-14.04-amd64.json`
 
 Congratulations! You now have the box in the ../builds directory that you can then add to Vagrant.
 
