@@ -3,6 +3,9 @@
 # install php5
 apt-get install -y php5 php5-mysql php5-curl php5-gd libapache2-mod-php5 php5-dev php5-xdebug php-pear php5-mcrypt php5-tidy
 
+# enable mcrypt
+php5enmod mcrypt
+
 # upgrade pear
 /usr/bin/pear upgrade
 

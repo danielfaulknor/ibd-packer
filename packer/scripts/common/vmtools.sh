@@ -10,6 +10,9 @@ virtualbox-iso|virtualbox-ovf)
     umount /tmp/vbox
     rmdir /tmp/vbox
     rm /home/vagrant/*.iso
+    if [[ $VER =~ 4.3.10 ]]; then
+        ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
+    fi
     ;;
 
 vmware-iso|vmware-ovf)

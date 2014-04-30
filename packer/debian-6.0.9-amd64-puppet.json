@@ -35,32 +35,32 @@
     "type": "virtualbox-iso",
     "vboxmanage": [
         [
-        "modifyvm",
-        "{{.Name}}",
-        "--memory",
-        "384"
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "384"
         ],
         [
-        "modifyvm",
-        "{{.Name}}",
-        "--cpus",
-        "1"
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
         ]
     ],
     "virtualbox_version_file": ".vbox_version",
     "vm_name": "packer-debian-6.0.9-amd64"
     }
-],
-"post-processors": [
+  ],
+  "post-processors": [
     {
-    "output": "../builds/{{.Provider}}/debian-6.0.9_puppet.box",
-    "type": "vagrant"
+      "output": "../builds/{{.Provider}}/debian-6.0.9_puppet.box",
+      "type": "vagrant"
     }
-],
-"provisioners": [
+  ],
+  "provisioners": [
     {
-    "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
-    "scripts": [
+      "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "scripts": [
         "scripts/debian/update.sh",
         "scripts/common/sshd.sh",
         "scripts/debian/networking.sh",
@@ -69,27 +69,31 @@
         "scripts/common/vmtools.sh",
         "scripts/debian/puppet.sh",
         "scripts/common/git.sh"
-    ],
-    "type": "shell"
-}, {
-    "type": "file",
-    "source": "files/debian",
-    "destination": "/tmp"
-}, {
-    "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
-    "scripts": [
-    "scripts/debian/apache2.sh",
-    "scripts/debian/php5.sh",
-    "scripts/debian/mysql.sh",
-    "scripts/debian/phpmyadmin.sh",
-    "scripts/debian/exim.sh",
-    "scripts/debian/cleanup.sh",
-    "scripts/common/minimize.sh"
-    ],
-    "type": "shell"
-}
-],
-"variables": {
+      ],
+      "type": "shell"
+    }, {
+      "type": "file",
+      "source": "files/common",
+      "destination": "/tmp/common"
+    }, {
+      "type": "file",
+      "source": "files/debian",
+      "destination": "/tmp/debian"
+    }, {
+      "execute_command": "echo 'vagrant'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+        "scripts/debian/apache2.sh",
+        "scripts/common/php5.sh",
+        "scripts/debian/mysql.sh",
+        "scripts/debian/phpmyadmin.sh",
+        "scripts/debian/exim.sh",
+        "scripts/debian/cleanup.sh",
+        "scripts/common/minimize.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
     "mirror": "http://cdimage.debian.org/cdimage/archive"
-}
+  }
 }

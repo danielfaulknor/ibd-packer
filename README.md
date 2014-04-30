@@ -16,7 +16,7 @@ Generally any password should be `vagrant` (seeing a theme?).
 The following baseboxes are publicly available and were built using this project.
 They are also detailed at [Vagrant Cloud](https://vagrantcloud.com/xplore).
 
-- [debian-6.0.9]()
+- [debian-6.0.9](https://vagrantcloud.com/xplore/debian-6.0.9)
 
 ## Build your own boxes
 
