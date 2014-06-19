@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install php5
-apt-get install -y php5 php5-mysql php5-curl php5-gd libapache2-mod-php5 php5-dev php5-xdebug php-pear php5-mcrypt php5-tidy
+apt-get install -y php5 php5-mysql php5-curl php5-gd libapache2-mod-php5 php5-dev php5-xdebug php-pear php5-mcrypt php5-tidy php5-imap
 
 # enable mcrypt
 php5enmod mcrypt
