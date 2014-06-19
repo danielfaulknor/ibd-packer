@@ -4,7 +4,7 @@
     "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian-6.0.9/preseed.cfg <wait>",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian-7.5.0/preseed.cfg <wait>",
         "debian-installer=en_US <wait>",
         "auto <wait>",
         "locale=en_US <wait>",
@@ -25,8 +25,8 @@
     "http_directory": "http",
     "iso_checksum": "3f3ec3e1adb4c2904a1234799f4775c10cf47cce",
     "iso_checksum_type": "sha1",
-    "iso_url": "{{user `mirror`}}/6.0.9/amd64/iso-cd/debian-6.0.9-amd64-CD-1.iso",
-    "output_directory": "packer-debian-6.0.9-amd64-virtualbox",
+    "iso_url": "{{user `mirror`}}/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-CD-1.iso",
+    "output_directory": "packer-debian-7.5.0-amd64-virtualbox",
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
     "ssh_password": "vagrant",
     "ssh_port": 22,
@@ -48,12 +48,12 @@
         ]
     ],
     "virtualbox_version_file": ".vbox_version",
-    "vm_name": "packer-debian-6.0.9-amd64"
+    "vm_name": "packer-debian-7.5.0-amd64"
     }
   ],
   "post-processors": [
     {
-      "output": "../builds/{{.Provider}}/debian-6.0.9_puppet.box",
+      "output": "../builds/{{.Provider}}/debian-7.5.0_puppet.box",
       "type": "vagrant"
     }
   ],
@@ -94,6 +94,6 @@
     }
   ],
   "variables": {
-    "mirror": "http://cdimage.debian.org/cdimage/archive"
+    "mirror": "http://cdimage.debian.org/cdimage/release"
   }
 }
