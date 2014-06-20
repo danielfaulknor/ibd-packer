@@ -23,7 +23,7 @@
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
     "guest_os_type": "Debian_64",
     "http_directory": "http",
-    "iso_checksum": "3f3ec3e1adb4c2904a1234799f4775c10cf47cce",
+    "iso_checksum": "200948e5885da3b67730293a1426845f90239c62",
     "iso_checksum_type": "sha1",
     "iso_url": "{{user `mirror`}}/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-CD-1.iso",
     "output_directory": "packer-debian-7.5.0-amd64-virtualbox",
