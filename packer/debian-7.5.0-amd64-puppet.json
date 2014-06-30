@@ -84,6 +84,7 @@
       "scripts": [
         "scripts/debian/apache2.sh",
         "scripts/common/php5.sh",
+		"scripts/common/openvpn.sh",
         "scripts/debian/mysql.sh",
         "scripts/debian/phpmyadmin.sh",
         "scripts/debian/exim.sh",
